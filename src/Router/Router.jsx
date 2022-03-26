@@ -7,11 +7,11 @@ function Router() {
       <Route path="/" exact>
         <Landing />
       </Route>
-      <Route path="/product">
-        <h1>All Products</h1>
-      </Route>
       <Route path="/product/:i">
         <h1>Single Products</h1>
+      </Route>
+      <Route path="/shop">
+        <h1>All Products</h1>
       </Route>
       <Route path="/cart">
         <h1>Cart</h1>
