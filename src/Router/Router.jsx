@@ -1,5 +1,8 @@
 import { Route, Switch } from 'react-router-dom';
 import Landing from '../pages/Landing/Landing';
+import ProductListing from '../pages/ProductListing/ProductListing';
+import Cart from '../pages/Cart/Cart';
+import ProductDetail from '../pages/ProductDetail/ProductDetail';
 
 function Router() {
   return (
@@ -8,16 +11,16 @@ function Router() {
         <Landing />
       </Route>
       <Route path="/product/:i">
-        <h1>Single Products</h1>
+        <ProductDetail />
       </Route>
-      <Route path="/shop">
-        <h1>All Products</h1>
+      <Route path="/product-listing">
+        <ProductListing />
       </Route>
       <Route path="/cart">
-        <h1>Cart</h1>
+        <Cart />
       </Route>
       <Route path="/*">
-        <h1>404 Not FOUND!</h1>
+        <h1>404 page not found!</h1>
       </Route>
     </Switch>
   )
