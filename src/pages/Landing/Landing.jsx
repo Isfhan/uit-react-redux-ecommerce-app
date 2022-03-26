@@ -1,17 +1,21 @@
 import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
+import Image from 'react-bootstrap/Image';
 import banner from './banner.jpg';
 import './Landing.css';
+import { Container } from "react-bootstrap";
 
 function Landing() {
   return (
-    <div>
+    <>
       <Header />
-      <div className="landing-page-content-wrapper">
-        <img src={banner} alt="Banner" />
-      </div>
+        <Image src={banner} alt="Banner" fluid />
+        <Container>
+          <h1>Top 3 Product</h1>
+        </Container>
       <Footer />
-    </div>
+    </>
+
   )
 }
 
