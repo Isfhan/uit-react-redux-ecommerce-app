@@ -1,7 +1,34 @@
 import { createStore } from 'redux';
 
 const initialState = {
-  name: "isfhan"
+  products: [
+    {
+      id:1,
+      name:'ALM Headphones',
+      price:450
+    },
+    {
+      id:2,
+      name:'Dado Watch',
+      price:350
+    },
+    {
+      id:3,
+      name:'Mens Trimer',
+      price:650
+    },
+    {
+      id:4,
+      name:'Surprise box',
+      price:800
+    },
+    {
+      id:5,
+      name:'Women Sandals',
+      price:120
+    }
+  ],
+  basket: []
 };
 
 const stateReducer = (state = initialState, action) => {
@@ -12,7 +39,7 @@ const stateReducer = (state = initialState, action) => {
   } else if (action.type === "counter/decremented") {
 
     return { value: state.value - 1 };
-    
+
   }
   return state;
 };
