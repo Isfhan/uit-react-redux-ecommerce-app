@@ -6,7 +6,7 @@ function ProductDetail() {
   return (
     <>
     <Header />
-      <Container >
+      <Container fluid>
         <h1>ProductDetail </h1>
       </Container>
     <Footer />

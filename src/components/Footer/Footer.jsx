@@ -1,8 +1,10 @@
-
+import './Footer.css';
 
 function Footer() {
     return (
-        <div>Footer</div>
+        <div className="isf-footer">
+            © 2022 E-store - All Rights Reserved.
+        </div>
     )
 }
 

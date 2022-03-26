@@ -10,7 +10,7 @@ function Landing() {
     <>
       <Header />
         <Image src={banner} alt="Banner" fluid />
-        <Container>
+        <Container fluid>
           <h1>Top 3 Product</h1>
         </Container>
       <Footer />

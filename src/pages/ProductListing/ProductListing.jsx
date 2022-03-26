@@ -6,7 +6,7 @@ function ProductListing() {
   return (
     <>
       <Header />
-        <Container>
+        <Container fluid>
           <h1>All Products</h1>
         </Container>
       <Footer />
