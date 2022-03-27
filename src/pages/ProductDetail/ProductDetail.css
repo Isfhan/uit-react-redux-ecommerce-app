@@ -1,10 +1,10 @@
-.isf-prodct-detail-image{
+.isf-product-detail-image{
     max-width: 500px;
     height: 400px;
     object-fit: contain;
     padding: 20px;
 }
 
-.isf-prodct-detail-price {
+.isf-product-detail-price {
     font-weight: 500;
 }
