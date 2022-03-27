@@ -21,7 +21,7 @@ function Landing() {
 
   const featuredProducts = () => {
     return products.map((product, index) => (
-      <Col sm={12} md={6} lg={4} key={"featuredProducts" + index} className="mb-3" > 
+      <Col sm={12} md={6} lg={4} key={"featuredProducts" + index} className="mb-3" >
         <Card className="isf-card">
           <Card.Img variant="top" src={product.image} className="isf-card-image" />
           <Card.Body className="isf-card-body">
@@ -49,6 +49,14 @@ function Landing() {
         <Row className="pt-4 pb-4">
           {featuredProducts()}
         </Row>
+        <Row className="pt-4 pb-4 justify-content-center">
+          <Col sm={3} md={3} lg={3}>
+            <Button variant="success" size="lg" className="d-flex align-items-center gap-2">
+              See all products <FaChevronCircleRight />
+            </Button>
+          </Col>
+        </Row>
+
       </Container>
       <Footer />
     </>
