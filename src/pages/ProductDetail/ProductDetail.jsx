@@ -35,9 +35,6 @@ function ProductDetail() {
             </Card>
           </Col>
         </Row>
-
-
-
       </Container>
       <Footer />
     </>
