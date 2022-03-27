@@ -29,11 +29,11 @@ function Landing() {
               {product.title}
             </Card.Title>
             <Card.Text>
-              {product.description.slice(0, 50)}...
+              {product.description.slice(0, 100)}...
             </Card.Text>
-            <Button variant="primary" onClick={() => viewProductDetail(product.id)}>
-              View detail <FaChevronCircleRight />
-            </Button>
+                <Button variant="primary" className=" align-items-center gap-3" onClick={() => viewProductDetail(product.id)}>
+                  View detail <FaChevronCircleRight />
+                </Button>
           </Card.Body>
         </Card>
       </Col>
@@ -45,13 +45,13 @@ function Landing() {
       <Header />
       <Image src={banner} alt="Banner" fluid />
       <Container fluid className="isf-container-height">
-        <h1 className="text-center pt-3 pb-3">Featured Product</h1>
+        <h1 className="text-center mb-4 mt-4">Featured Product</h1>
         <Row className="pt-4 pb-4">
           {featuredProducts()}
         </Row>
-        <Row className="pt-4 pb-4 justify-content-center">
-          <Col sm={3} md={3} lg={3}>
-            <Button variant="success" size="lg" className="d-flex align-items-center gap-2">
+        <Row className="pt-4 pb-4">
+          <Col className="d-flex justify-content-center">
+            <Button variant="success" size="lg" className="d-flex align-items-center gap-3">
               See all products <FaChevronCircleRight />
             </Button>
           </Col>
