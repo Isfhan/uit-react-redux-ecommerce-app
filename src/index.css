@@ -4,7 +4,7 @@
     font-family: 'Montserrat', sans-serif;
 }
 
-.isf-card{
+.isf-card {
     width: 70%;
     margin: 0 auto;
     height: 100%
@@ -16,4 +16,8 @@
     object-fit: contain;
     border-bottom: 1px solid #dfdfdf;
     padding: 10px;
+}
+
+.isf-container-height {
+    min-height: 800px;
 }

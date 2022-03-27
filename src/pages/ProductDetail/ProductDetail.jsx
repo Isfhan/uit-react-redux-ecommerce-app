@@ -19,7 +19,7 @@ function ProductDetail() {
   return (
     <>
       <Header />
-      <Container fluid>
+      <Container fluid className="isf-container-height">
         <Row>
           <Col className="mt-4 mb-4">
             <Card className="flex-row">

@@ -6,7 +6,7 @@ function Cart() {
   return (
     <>
     <Header />
-      <Container >
+      <Container fluid className="isf-container-height">
         <h1>Cart</h1>
       </Container>
     <Footer />
