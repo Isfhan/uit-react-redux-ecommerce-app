@@ -10,7 +10,7 @@ function Router() {
       <Route path="/" exact>
         <Landing />
       </Route>
-      <Route path="/product/:i">
+      <Route path="/product/:id">
         <ProductDetail />
       </Route>
       <Route path="/product-listing">
