@@ -23,13 +23,13 @@ function ProductDetail() {
         <Row>
           <Col className="mt-4 mb-4">
             <Card className="flex-row">
-              <Card.Img variant="top" src={singleProductDetail.image} className="isf-prodct-detail-image" />
+              <Card.Img variant="top" src={singleProductDetail.image} className="isf-product-detail-image" />
               <Card.Body>
                 <Card.Title style={{ fontWeight: '700' }}>{singleProductDetail.title}</Card.Title>
                 <Card.Text >
                   {singleProductDetail.description}
                 </Card.Text>
-                <p className="isf-prodct-detail-price"> Price : $ {singleProductDetail.price}</p>
+                <p className="isf-product-detail-price"> Price : $ {singleProductDetail.price}</p>
                 <Button variant="success">Add to cart</Button>
               </Card.Body>
             </Card>
