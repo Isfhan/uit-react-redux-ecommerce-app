@@ -24,7 +24,7 @@ function Landing() {
       <Col sm={12} md={6} lg={4} key={"featuredProducts" + index} className="mb-3" > 
         <Card className="isf-card">
           <Card.Img variant="top" src={product.image} className="isf-card-image" />
-          <Card.Body>
+          <Card.Body className="isf-card-body">
             <Card.Title style={{ fontWeight: '700' }}>
               {product.title}
             </Card.Title>
