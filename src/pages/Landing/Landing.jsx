@@ -44,7 +44,7 @@ function Landing() {
     <>
       <Header />
       <Image src={banner} alt="Banner" fluid />
-      <Container fluid className="isf-container-height">
+      <Container  className="isf-container-height">
         <h1 className="text-center mb-4 mt-4">Featured Product</h1>
         <Row className="pt-4 pb-4">
           {featuredProducts()}

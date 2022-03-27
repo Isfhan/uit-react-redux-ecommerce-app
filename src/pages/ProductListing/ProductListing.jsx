@@ -25,7 +25,7 @@ function ProductListing() {
               {product.title}
             </Card.Title>
             <Card.Text>
-              {product.description.slice(0, 50)}...
+              {product.description.slice(0, 100)}...
             </Card.Text>
             <Button variant="primary" onClick={() => viewProductDetail(product.id)}>
               View detail <FaChevronCircleRight />
@@ -39,7 +39,7 @@ function ProductListing() {
   return (
     <>
       <Header />
-      <Container fluid className="isf-container-height">
+      <Container  className="isf-container-height">
         <h1 className="text-center pt-3 pb-3">All Product</h1>
         <Row className="pt-4 pb-4">
           {renderAllProducts()}
