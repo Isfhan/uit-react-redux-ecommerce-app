@@ -6,7 +6,6 @@ import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Image from "react-bootstrap/Image";
 import banner from "./banner.jpg";
-import './Landing.css';
 
 function Landing() {
 
