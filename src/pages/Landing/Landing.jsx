@@ -18,6 +18,10 @@ function Landing() {
     history.push("/product/" + pid);
   };
 
+  const viewAllProducts = () => {
+    history.push("/product-listing");
+  };
+
 
   const featuredProducts = () => {
     return products.map((product, index) => (
@@ -31,7 +35,7 @@ function Landing() {
             <Card.Text>
               {product.description.slice(0, 100)}...
             </Card.Text>
-            <Button variant="primary" className="d-flex align-items-center gap-3 justify-content-center" onClick={() => viewProductDetail(product.id)}>
+            <Button variant="primary" style={{ fontWeight: '500' }} className="d-flex align-items-center gap-3 justify-content-center" onClick={() => viewProductDetail(product.id)}>
               View detail <FaArrowRight />
             </Button>
           </Card.Body>
@@ -51,7 +55,7 @@ function Landing() {
         </Row>
         <Row className="pt-4 pb-4">
           <Col className="d-flex justify-content-center">
-            <Button variant="success" size="lg" className="d-flex align-items-center gap-3">
+            <Button variant="success" size="lg" className="d-flex align-items-center gap-3" onClick={viewAllProducts}>
               See all products <FaArrowRight />
             </Button>
           </Col>
