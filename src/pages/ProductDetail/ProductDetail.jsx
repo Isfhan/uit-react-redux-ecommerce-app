@@ -1,8 +1,8 @@
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
+import { useDispatch, useSelector } from 'react-redux';
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import { useParams } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
 import './ProductDetail.css';
 
 function ProductDetail() {
@@ -80,12 +80,6 @@ function ProductDetail() {
     <>
       <Header />
       <Container className="isf-container-height">
-        <ul>
-          {cart.map((product, index) => (
-            <li key={"cart" + index}>{product.title}</li>
-          ))}
-        </ul>
-
         <Row>
           <Col className="mt-4 mb-4">
             <Card className="flex-row border-0">
