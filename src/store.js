@@ -128,15 +128,20 @@ const initialState = {
 
 const stateReducer = (state = initialState, action) => {
   if (action.type === "cart/add") {
+    let basket;
+    state.basket.forEach((basketProduct, basketProductIndex) => {
+      if (basketProduct.id === action.payload.id) {
+        basket = { basketProduct, basketProductIndex }
+      }
+    });
 
-    let basketProduct = state.basket.find((product) => product.id === action.payload.id);
-
-    if (basketProduct) {
-
+    console.log(basket);
+    if (basket) {
+      let { basketProduct, basketProductIndex } = basket;
       const quantity = basketProduct.quantity + action.payload.quantity;
       const totalPrice = (basketProduct.price * quantity);
 
-      state.basket.push({
+      state.basket[basketProductIndex] = {
         "id": basketProduct.id,
         "title": basketProduct.title,
         "price": basketProduct.price,
@@ -144,7 +149,8 @@ const stateReducer = (state = initialState, action) => {
         "image": basketProduct.image,
         "quantity": quantity,
         "totalPrice": totalPrice
-      });
+      }
+
     } else {
 
       let product = state.products.find((product) => product.id === action.payload.id);
