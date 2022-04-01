@@ -128,51 +128,12 @@ const initialState = {
 
 const stateReducer = (state = initialState, action) => {
   if (action.type === "cart/add") {
-    let basket;
-    state.basket.forEach((basketProduct, basketProductIndex) => {
-      if (basketProduct.id === action.payload.id) {
-        basket = { basketProduct, basketProductIndex }
-      }
-    });
-
-    console.log(basket);
-    if (basket) {
-      let { basketProduct, basketProductIndex } = basket;
-      const quantity = basketProduct.quantity + action.payload.quantity;
-      const totalPrice = (basketProduct.price * quantity);
-
-      state.basket[basketProductIndex] = {
-        "id": basketProduct.id,
-        "title": basketProduct.title,
-        "price": basketProduct.price,
-        "description": basketProduct.description,
-        "image": basketProduct.image,
-        "quantity": quantity,
-        "totalPrice": totalPrice
-      }
-
-    } else {
-
-      let product = state.products.find((product) => product.id === action.payload.id);
-
-      state.basket.push({
-        "id": product.id,
-        "title": product.title,
-        "price": product.price,
-        "description": product.description,
-        "image": product.image,
-        "quantity": action.payload.quantity,
-        "totalPrice": (product.price * action.payload.quantity)
-      });
-    }
+    state.basket = [...action.payload];
     return JSON.parse(JSON.stringify(state));
   }
 
   return JSON.parse(JSON.stringify(state));
 };
-
-
-
 
 const store = createStore(stateReducer);
 
