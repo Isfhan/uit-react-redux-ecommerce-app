@@ -19,19 +19,35 @@ function ProductDetail() {
   return (
     <>
       <Header />
-      <Container fluid className="isf-container-height">
+      <Container className="isf-container-height">
         <Row>
           <Col className="mt-4 mb-4">
-            <Card className="flex-row">
-              <Card.Img variant="top" src={singleProductDetail.image} className="isf-product-detail-image" />
-              <Card.Body>
-                <Card.Title style={{ fontWeight: '700' }}>{singleProductDetail.title}</Card.Title>
-                <Card.Text >
-                  {singleProductDetail.description}
-                </Card.Text>
-                <p className="isf-product-detail-price"> Price : $ {singleProductDetail.price}</p>
-                <Button variant="success">Add to cart</Button>
-              </Card.Body>
+            <Card className="flex-row border-0">
+              <Row>
+                <Col sm={12} md={6} lg={4}>
+                  <Card.Img variant="top" src={singleProductDetail.image} className="isf-product-detail-image" />
+                </Col>
+                <Col sm={12} md={6} lg={8}>
+                  <Card.Body>
+                    <Card.Title>
+                      <h2>
+                        {singleProductDetail.title}
+                      </h2>
+                    </Card.Title>
+                    <Card.Text >
+                      {singleProductDetail.description}
+                    </Card.Text>
+                    <Row className="text-end">
+                      <Col className="mt-5">
+                        <p className="isf-product-detail-price"> Price : $ {singleProductDetail.price}</p>
+                        <Button variant="success">Add to cart</Button>
+                      </Col>
+                    </Row>
+
+
+                  </Card.Body>
+                </Col>
+              </Row>
             </Card>
           </Col>
         </Row>
