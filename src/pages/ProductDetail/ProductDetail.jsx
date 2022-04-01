@@ -26,7 +26,6 @@ function ProductDetail() {
     return state.cart;
   });
 
-  console.log(cart);
 
   const checkProductInCart = (productId) => {
     let product;

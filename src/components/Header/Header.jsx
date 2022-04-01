@@ -2,8 +2,14 @@ import { Container, Navbar, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import './Header.css'
 import { FaShoppingCart } from 'react-icons/fa';
+import { useSelector } from 'react-redux';
 
 function Header() {
+
+  const cart = useSelector((state) => {
+    return state.cart;
+  });
+
   return (
     <>
       <Navbar collapseOnSelect expand="lg" className="isf-navbar" variant="dark">
@@ -19,7 +25,7 @@ function Header() {
             <Nav>
               <Nav.Link as={Link} to="/cart">
                 <Container>
-                  <FaShoppingCart /> {0}
+                  <FaShoppingCart /> {cart.length}
                 </Container>
               </Nav.Link>
               {/* <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
