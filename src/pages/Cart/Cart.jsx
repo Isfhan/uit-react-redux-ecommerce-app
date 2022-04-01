@@ -1,4 +1,4 @@
-import { Container, Row, Col, Card } from "react-bootstrap";
+import { Container, Row, Col, Card, Alert } from "react-bootstrap";
 import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
 import { useSelector } from 'react-redux';
@@ -39,25 +39,37 @@ function Cart() {
           </Card>
 
           {
-            cart.map((product, index) => (
-              <Card className="flex-row mb-3 text-center align-items-center" key={"cart-product-" + index}>
-                <Col>
-                  <h6 className="pt-2 pb-2">{product.title}</h6>
-                  <Card.Img variant="top" src={product.image} className="isf-product-cart-image" />
-                </Col>
-                <Col>
-                  <h6>
-                    {product.quantity}
-                  </h6>
-                </Col>
-                <Col>
-                  <h6>
-                    $ {product.totalPrice}
-                  </h6>
-                </Col>
-              </Card>
-            ))
+
+            cart.length ?
+              cart.map((product, index) => (
+                <Card className="flex-row mb-3 text-center align-items-center" key={"cart-product-" + index}>
+                  <Col>
+                    <h6 className="pt-2 pb-2">{product.title}</h6>
+                    <Card.Img variant="top" src={product.image} className="isf-product-cart-image" />
+                  </Col>
+                  <Col>
+                    <h6>
+                      {product.quantity}
+                    </h6>
+                  </Col>
+                  <Col>
+                    <h6>
+                      $ {product.totalPrice}
+                    </h6>
+                  </Col>
+                </Card>
+              )) 
+              :
+              <Alert variant="info">
+                <Alert.Heading>Your cart is empty</Alert.Heading>
+                <p>
+                 Looks like you have not added anything to your cart . Go and buy our awesome product
+                </p>
+              </Alert>
           }
+
+
+
         </Row>
 
       </Container>
