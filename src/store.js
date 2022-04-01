@@ -127,16 +127,42 @@ const initialState = {
 };
 
 const stateReducer = (state = initialState, action) => {
-  if (action.type === "counter/incremented") {
+  if (action.type === "cart/add") {
 
-    return { value: state.value + 1 };
+    let basketProduct = state.basket.find((product) => product.id === action.payload.id);
 
-  } else if (action.type === "counter/decremented") {
+    if (basketProduct) {
 
-    return { value: state.value - 1 };
+      const quantity = basketProduct.quantity + action.payload.quantity;
+      const totalPrice = (basketProduct.price * quantity);
 
+      state.basket.push({
+        "id": basketProduct.id,
+        "title": basketProduct.title,
+        "price": basketProduct.price,
+        "description": basketProduct.description,
+        "image": basketProduct.image,
+        "quantity": quantity,
+        "totalPrice": totalPrice
+      });
+    } else {
+
+      let product = state.products.find((product) => product.id === action.payload.id);
+
+      state.basket.push({
+        "id": product.id,
+        "title": product.title,
+        "price": product.price,
+        "description": product.description,
+        "image": product.image,
+        "quantity": action.payload.quantity,
+        "totalPrice": (product.price * action.payload.quantity)
+      });
+    }
+    return JSON.parse(JSON.stringify(state));
   }
-  return state;
+
+  return JSON.parse(JSON.stringify(state));
 };
 
 

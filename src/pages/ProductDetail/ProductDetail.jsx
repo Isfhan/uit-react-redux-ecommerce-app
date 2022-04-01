@@ -2,12 +2,13 @@ import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import { useParams } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import './ProductDetail.css';
 
 function ProductDetail() {
 
   const { id } = useParams();
+
 
   const singleProductDetail = useSelector((state) => {
     for (let i = 0; i < state.products.length; i++) {
@@ -15,11 +16,27 @@ function ProductDetail() {
     }
   });
 
+  const dispatch = useDispatch();
+
+  const cart = useSelector((state) => {
+    return state.basket;
+  })
+  console.log(cart);
+
+  const addProductInCart = (productId) => {
+    dispatch({ type: "cart/add", payload: { "id": productId, "quantity": 1 } });
+  }
 
   return (
     <>
       <Header />
       <Container className="isf-container-height">
+        <ul>
+          {cart.map((product, index) => (
+            <li key={"cart" + index}>{product.quantity}</li>
+          ))}
+        </ul>
+
         <Row>
           <Col className="mt-4 mb-4">
             <Card className="flex-row border-0">
@@ -40,11 +57,9 @@ function ProductDetail() {
                     <Row className="text-end">
                       <Col className="mt-5">
                         <p className="isf-product-detail-price"> Price : $ {singleProductDetail.price}</p>
-                        <Button variant="success">Add to cart</Button>
+                        <Button variant="success" onClick={() => addProductInCart(singleProductDetail.id)}>Add to cart</Button>
                       </Col>
                     </Row>
-
-
                   </Card.Body>
                 </Col>
               </Row>
