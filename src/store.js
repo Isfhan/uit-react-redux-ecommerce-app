@@ -123,12 +123,12 @@ const initialState = {
       }
     }
   ],
-  basket: []
+  cart: []
 };
 
 const stateReducer = (state = initialState, action) => {
   if (action.type === "cart/add") {
-    state.basket = [...action.payload];
+    state.cart = [...action.payload];
     return JSON.parse(JSON.stringify(state));
   }
 

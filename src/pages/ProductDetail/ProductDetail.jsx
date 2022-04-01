@@ -23,36 +23,37 @@ function ProductDetail() {
   });
 
   const cart = useSelector((state) => {
-    return state.basket;
+    return state.cart;
   });
 
   console.log(cart);
 
   const checkProductInCart = (productId) => {
-    let basket;
-    cart.forEach((basketProduct, basketProductIndex) => {
-      if (basketProduct.id === productId) {
-        basket = { basketProduct, basketProductIndex }
+    let product;
+    cart.forEach((cartProduct, cartProductIndex) => {
+      if (cartProduct.id === productId) {
+        product = { cartProduct, cartProductIndex }
       }
     });
-    return basket;
+    return product;
   }
 
 
   const addProductInCart = (productId, quantity) => {
-    const basket = checkProductInCart(productId);
-    if (basket) {
 
-      const { basketProduct, basketProductIndex } = basket;
-      const totalQuantity = basketProduct.quantity + quantity;
-      const totalPrice = (basketProduct.price * totalQuantity);
+    const product = checkProductInCart(productId);
+    if (product) {
 
-      cart[basketProductIndex] = {
-        "id": basketProduct.id,
-        "title": basketProduct.title,
-        "price": basketProduct.price,
-        "description": basketProduct.description,
-        "image": basketProduct.image,
+      const { cartProduct, cartProductIndex } = product;
+      const totalQuantity = cartProduct.quantity + quantity;
+      const totalPrice = (cartProduct.price * totalQuantity);
+
+      cart[cartProductIndex] = {
+        "id": cartProduct.id,
+        "title": cartProduct.title,
+        "price": cartProduct.price,
+        "description": cartProduct.description,
+        "image": cartProduct.image,
         "quantity": totalQuantity,
         "totalPrice": totalPrice
       }
@@ -81,7 +82,7 @@ function ProductDetail() {
       <Container className="isf-container-height">
         <ul>
           {cart.map((product, index) => (
-            <li key={"cart" + index}>{product.quantity}</li>
+            <li key={"cart" + index}>{product.title}</li>
           ))}
         </ul>
 
@@ -102,10 +103,10 @@ function ProductDetail() {
                     <Card.Text >
                       {singleProductDetail.description}
                     </Card.Text>
-                    <Row className="text-end">
+                    <Row>
                       <Col className="mt-5">
                         <p className="isf-product-detail-price"> Price : $ {singleProductDetail.price}</p>
-                        <Button variant="success" onClick={() => addProductInCart(singleProductDetail.id,1)}>Add to cart</Button>
+                        <Button variant="success" onClick={() => addProductInCart(singleProductDetail.id, 1)}>Add to cart</Button>
                       </Col>
                     </Row>
                   </Card.Body>
